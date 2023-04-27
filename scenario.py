@@ -16,7 +16,7 @@ def vehicleVerification(veh1):
         writer.writerow([port])
 
     # step 0 : initializing objects
-    veh1.Vid = port
+    veh1.Vid = 4765
     veh1.receiveMessage()
 
     # step 1 : RTA -> RSU
@@ -47,6 +47,10 @@ def vehicleVerification(veh1):
 
 
     # step 5 : verification of vehicle
+
+    with open("vehicleList1.csv", 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([veh1.vehicleKeys[0].n, veh1.vehicleKeys[0].e, veh1.vehicleKeys[1].d])
 
     # step 6 : POI table distribution
 
@@ -419,4 +423,3 @@ def test2():
 #%% 
 if __name__ == "__main__":
     test2()
-                
